@@ -106,7 +106,7 @@ Country-specific products are stored under:
 data/countries/<country>/
 ```
 
-Regional Open-Meteo products are stored under:
+Regional Open-Meteo products for comparision with station are stored under:
 
 ```text
 data/regional/africa/openmeteo/
