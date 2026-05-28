@@ -491,7 +491,9 @@ This project is supported by the **CGIAR Climate Action Science Program** of the
 If you use this repository for research, operational climate services, policy analysis, or decision-support system development, please cite it as:
 
 ```text
-Ahmed, J.; Ghosh, A. (2026). Seasonal Agroclimate Indices Forecast Pipeline: A production workspace for multi-country seasonal agroclimate indices forecasts and policy-ready outputs. GitHub repository: https://github.com/jemsethio/AgClimateAF_indices
+Ahmed, J.; Ghosh, A. (2026). Seasonal Agroclimate Indices Forecast Pipeline: A production
+workspace for multi-country seasonal agroclimate indices forecasts and policy-ready outputs.
+GitHub repository: https://github.com/jemsethio/AgClimateAF_indices
 ```
 
 ---
