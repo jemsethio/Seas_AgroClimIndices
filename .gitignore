@@ -15,7 +15,6 @@ venv/
 .Rproj.user/
 
 # Data and large outputs
-archive/
 temp/
 *.nc
 *.tif
