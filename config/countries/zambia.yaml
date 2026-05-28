@@ -1,0 +1,13 @@
+name: Zambia
+slug: zambia
+iso2: ZM
+iso3: ZMB
+season:
+  name: Main rainy season
+  months: [11, 12, 1, 2, 3, 4]
+bbox:
+  cds_area_nwse: [-8.1, 21.8, -18.2, 33.8]
+  lon_lat: [21.8, 33.8, -18.2, -8.1]
+boundaries: {}
+paths:
+  smoke_tests: data/countries/zambia/smoke_tests

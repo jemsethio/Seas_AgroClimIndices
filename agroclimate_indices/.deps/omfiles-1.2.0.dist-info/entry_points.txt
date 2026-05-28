@@ -1,0 +1,5 @@
+[xarray.backends]
+om=omfiles.xarray:OmXarrayEntrypoint
+[zarr.codecs]
+omfiles.pfor=omfiles._zarr3:PforCodec
+omfiles.pfor_serializer=omfiles._zarr3:PforSerializer

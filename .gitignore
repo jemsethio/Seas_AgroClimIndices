@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Data and large outputs
+archive/
+temp/
+*.nc
+*.tif
+*.tiff
+*.rds
+*.csv
+*.zip
+
+# Open-Meteo / downloaded cache files
+agroclimate_indices/.openmeteo_cache/
+**/.openmeteo_cache/

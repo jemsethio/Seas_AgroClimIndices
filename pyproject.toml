@@ -1,0 +1,100 @@
+[project]
+name = "cds-agroclimate-pipeline"
+version = "0.1.0"
+description = "CDS multi-model seasonal forecast download and agro-climate index pipeline for Africa"
+requires-python = ">=3.12"
+authors = [
+    { name = "Jemal Ahmed", email = "J.Ahmed@cgiar.org" },
+]
+readme = "README.md"
+license = { text = "MIT" }
+
+dependencies = [
+    # ── CDS data access ──────────────────────────────────────────────────
+    "cdsapi>=0.7.0",
+
+    # ── Core scientific stack ────────────────────────────────────────────
+    "numpy>=1.26",
+    "xarray>=2024.1.0",
+    "netCDF4>=1.6.0",
+    "scipy>=1.12.0",
+    "pandas>=2.2.0",
+
+    # ── earthkit suite (ECMWF) ───────────────────────────────────────────
+    # earthkit-data    : read/download CDS, GRIB, NetCDF via unified API
+    "earthkit-data>=0.20.0",
+    # earthkit-meteo   : met formulas (RH, VPD, ET0, wind speed, SVP …)
+    "earthkit-meteo>=0.6.0",
+    # earthkit-transforms : temporal & spatial aggregation (6h→daily, etc.)
+    "earthkit-transforms>=0.5.0",
+    # earthkit-geo     : geographic operations, projections, masking
+    "earthkit-geo>=0.5.0",
+    # earthkit-hydro   : hydrological indices (ET0, SPI, SPEI, water balance)
+    "earthkit-hydro>=1.2.0",
+    # earthkit-plots   : maps and visualisation of gridded climate fields
+    "earthkit-plots>=0.6.0",
+
+    # ── GRIB support (required by earthkit-data for GRIB format) ─────────
+    "cfgrib>=0.9.10",
+    "eccodes>=1.6.0",
+
+    # ── Parallel / async ────────────────────────────────────────────────
+    "dask>=2024.1.0",
+    "distributed>=2024.1.0",
+
+    # ── Visualisation helpers ────────────────────────────────────────────
+    "matplotlib>=3.8.0",
+    "cartopy>=0.23.0",
+
+    # ── Geospatial / masking ─────────────────────────────────────────────
+    "shapely>=2.0.0",
+    "pyproj>=3.6.0",
+    "geopandas>=0.14.0",
+
+    # ── Utilities ───────────────────────────────────────────────────────
+    "tqdm>=4.66.0",
+    "click>=8.1.0",
+    "pyyaml>=6.0",
+    "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "ipython>=8.0",
+    "jupyterlab>=4.0",
+]
+
+[project.scripts]
+cds-download = "cds_agroclimate_pipeline.cds.download_surface:main"
+cds-compute = "cds_agroclimate_pipeline.cds.compute_indices:main"
+cds-mme = "cds_agroclimate_pipeline.cds.build_mme:main"
+cds-extract-points = "cds_agroclimate_pipeline.cds.extract_points:main"
+agroclimate-maps = "cds_agroclimate_pipeline.visualization.maps:main"
+agroclimate-publication-figures = "cds_agroclimate_pipeline.publication.figures:main"
+agroclimate-moa-woreda-brief = "cds_agroclimate_pipeline.publication.moa_woreda_brief:main"
+agroclimate-mme-brief = "cds_agroclimate_pipeline.publication.mme_brief:main"
+agroclimate-elnino-analog-brief = "cds_agroclimate_pipeline.publication.elnino_analog_brief:main"
+agroclimate-merged-word-brief = "cds_agroclimate_pipeline.publication.merged_word_brief:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = [
+    "project_paths",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cds_agroclimate_pipeline*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.uv]
+# Store the UV wheel/package cache on T7 (3.4 TB free) — avoids filling /Users
+cache-dir = "/Volumes/T7/.uv_cache"

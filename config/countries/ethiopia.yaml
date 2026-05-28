@@ -1,0 +1,19 @@
+name: Ethiopia
+slug: ethiopia
+iso2: ET
+iso3: ETH
+season:
+  name: Kiremt
+  months: [6, 7, 8, 9]
+bbox:
+  # CDS expects [north, west, south, east].
+  cds_area_nwse: [15.0, 33.0, 3.0, 48.0]
+  # Internal plotting and Open-Meteo helpers use [lon_min, lon_max, lat_min, lat_max].
+  lon_lat: [33.0, 48.0, 3.0, 15.0]
+boundaries:
+  adm1: data/countries/ethiopia/boundaries/ethiopia_adm1_gadm.gpkg
+  adm2: data/countries/ethiopia/boundaries/ethiopia_adm2_gadm.gpkg
+  adm3: data/countries/ethiopia/boundaries/ethiopia_adm3_gadm.gpkg
+paths:
+  cds_root: data/countries/ethiopia/seasonal/cds
+  reports: data/countries/ethiopia/reports
